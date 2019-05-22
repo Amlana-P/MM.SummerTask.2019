@@ -245,36 +245,59 @@
 				</div>
 			</div>
 		</div>
+		<div style="color: white;">
+			<hr><h3><b>FEATURED STORY</b></h3><hr>
+			<div class="container" >
+				<div class="col-sm-4">
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 1</span><br><br>
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 2</span>
+				</div>
+				<div class="col-sm-4">
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 3</span><br><br>
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 4</span>
+				</div>
+				<div class="col-sm-4">
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 5</span><br><br>
+					<img src="https://placehold.it/60x60">
+					<span>Popular post 6</span>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
+<script>
+	var myVar;
 
-	<script>
-		var myVar;
+	function myFunction() {
+		myVar = setTimeout(showPage, 3000);
+	}
 
-		function myFunction() {
-			myVar = setTimeout(showPage, 3000);
+	function showPage() {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("myDiv").style.display = "block";
+	}
+	$('.carousel .vertical .item').each(function(){
+		var next = $(this).next();
+		if (!next.length) {
+			next = $(this).siblings(':first');
 		}
+		next.children(':first-child').clone().appendTo($(this));
 
-		function showPage() {
-			document.getElementById("loader").style.display = "none";
-			document.getElementById("myDiv").style.display = "block";
-		}
-		$('.carousel .vertical .item').each(function(){
-			var next = $(this).next();
+		for (var i=1;i<4;i++) {
+			next=next.next();
 			if (!next.length) {
 				next = $(this).siblings(':first');
 			}
+
 			next.children(':first-child').clone().appendTo($(this));
-
-			for (var i=1;i<4;i++) {
-				next=next.next();
-				if (!next.length) {
-					next = $(this).siblings(':first');
-				}
-
-				next.children(':first-child').clone().appendTo($(this));
-			}
-		});
-	</script>
+		}
+	});
+</script>
 
 </body>
 </html>
